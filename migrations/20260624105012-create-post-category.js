@@ -9,7 +9,7 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      postId: {
+      PostId: {
         type: Sequelize.INTEGER,
         references: {
         model: 'Posts',
@@ -18,7 +18,7 @@ module.exports = {
       onUpdate: 'cascade',
       onDelete: 'cascade'
       },
-      categoryId: {
+      CategoryId: {
         type: Sequelize.INTEGER,
         references: {
         model: 'Categories',
