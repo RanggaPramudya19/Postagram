@@ -1,0 +1,23 @@
+[
+  {
+    "fullName": "Alex Johnson",
+    "bio": "Passionate about technology and coding.",
+    "linkSocmed": "https://instagram.com/alexjohnson",
+    "profilePicture": "https://picsum.photos/id/1005/300/300",
+    "userId": 1
+  },
+  {
+    "fullName": "Sarah Williams",
+    "bio": "Travel enthusiast and photographer.",
+    "linkSocmed": "https://instagram.com/sarahwilliams",
+    "profilePicture": "https://picsum.photos/id/1011/300/300",
+    "userId": 2
+  },
+  {
+    "fullName": "Michael Brown",
+    "bio": "Food lover and coffee addict.",
+    "linkSocmed": "https://instagram.com/michaelbrown",
+    "profilePicture": "https://picsum.photos/id/1027/300/300",
+    "userId": 3
+  }
+]

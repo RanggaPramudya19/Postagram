@@ -1,0 +1,26 @@
+[
+  {
+    "postId": 1,
+    "categoryId": 1
+  },
+  {
+    "postId": 2,
+    "categoryId": 1
+  },
+  {
+    "postId": 3,
+    "categoryId": 2
+  },
+  {
+    "postId": 4,
+    "categoryId": 2
+  },
+  {
+    "postId": 5,
+    "categoryId": 3
+  },
+  {
+    "postId": 6,
+    "categoryId": 3
+  }
+]

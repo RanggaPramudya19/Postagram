@@ -1,0 +1,32 @@
+[
+  {
+    "description": "Just finished building my first Express app!",
+    "imageUrl": "https://picsum.photos/id/1/500/500",
+    "userId": 1
+  },
+  {
+    "description": "Learning Sequelize associations today.",
+    "imageUrl": "https://picsum.photos/id/2/500/500",
+    "userId": 1
+  },
+  {
+    "description": "Beautiful sunset at the beach.",
+    "imageUrl": "https://picsum.photos/id/3/500/500",
+    "userId": 2
+  },
+  {
+    "description": "Exploring hidden gems around the city.",
+    "imageUrl": "https://picsum.photos/id/4/500/500",
+    "userId": 2
+  },
+  {
+    "description": "Best ramen I've ever tasted!",
+    "imageUrl": "https://picsum.photos/id/5/500/500",
+    "userId": 3
+  },
+  {
+    "description": "Morning coffee before starting work.",
+    "imageUrl": "https://picsum.photos/id/6/500/500",
+    "userId": 3
+  }
+]
