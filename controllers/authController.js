@@ -1,3 +1,5 @@
+const {User, UserProfile, Post, Category} = require(`../models`)
+
 class AuthController {
 
     // GET /register
