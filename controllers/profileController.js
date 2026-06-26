@@ -1,34 +1,40 @@
 const {User, UserProfile, Post, Category} = require(`../models`)
+const getTimeAgo = require(`../helpers/helper`)
 
-class ProfileController {
+class PostController {
 
-    // GET /profile
-    static async showProfile(req, res) {
+    // ============================
+    // GET /
+    // Menampilkan profile user
+    // ============================
+    static async showProfile(req, res, next) {
         try {
+            const {success} = req.query
+            const user = await User.findByPk(req.session.userId, {
+                include: [
+                    UserProfile,
+                    Post
+                ],
+                order: [[Post, "createdAt", "DESC"]]        
+            });
 
+            if (!user) {
+                throw new Error("User not found");
+            }
+
+            res.render("showProfile", {
+                user,
+                currentUserId : req.session.userId,
+                success,
+                getTimeAgo
+            });
         } catch (error) {
-            res.send(error)
-        }
-    }
+            next(error);
 
-    // GET /profile/edit
-    static async editForm(req, res) {
-        try {
-
-        } catch (error) {
-            res.send(error)
         }
-    }
 
-    // POST /profile/edit
-    static async updateProfile(req, res) {
-        try {
-            
-        } catch (error) {
-            res.send(error)
-        }
     }
 
 }
 
-module.exports = ProfileController
+module.exports = PostController;

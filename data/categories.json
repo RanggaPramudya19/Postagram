@@ -1,14 +1,14 @@
 [
   {
-    "name": "Technology",
+    "name": "Tech",
     "description": "Technology related posts"
   },
   {
-    "name": "Travel",
-    "description": "Travel experiences and adventures"
+    "name": "Sport",
+    "description": "Sports related posts"
   },
   {
     "name": "Food",
-    "description": "Food and culinary reviews"
+    "description": "Food and culinary posts"
   }
 ]

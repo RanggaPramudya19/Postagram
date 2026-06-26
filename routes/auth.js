@@ -1,5 +1,6 @@
 const router = require('express').Router()
 const AuthController = require('../controllers/authController')
+const upload = require("../middlewares/multer");
 
 /*
 |--------------------------------------------------------------------------
@@ -8,11 +9,14 @@ const AuthController = require('../controllers/authController')
 | Route yang berhubungan dengan registrasi, login, dan logout user
 |--------------------------------------------------------------------------
 */
+//Home
+router.get("/", AuthController.home);
 
 // Register
 router.get('/register', AuthController.registerForm)
-router.post('/register', AuthController.register)
-
+router.post( "/register",upload.single("profilePicture"),
+AuthController.register
+);
 // Login
 router.get('/login', AuthController.loginForm)
 router.post('/login', AuthController.login)

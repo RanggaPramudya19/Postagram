@@ -1,6 +1,7 @@
 const router = require('express').Router()
 const PostController = require('../controllers/postController')
-const authentication = require('../middlewares/authentication')
+const authentication = require('../middlewares/auth')
+const upload = require('../middlewares/multer')
 
 /*
 |--------------------------------------------------------------------------
@@ -10,11 +11,7 @@ const authentication = require('../middlewares/authentication')
 |--------------------------------------------------------------------------
 */
 
-// Menampilkan seluruh postingan
-router.get('/', PostController.showPosts)
 
-// Menampilkan detail satu postingan
-router.get('/:id', PostController.detailPost)
 
 /*
 |--------------------------------------------------------------------------
@@ -27,21 +24,20 @@ router.get('/:id', PostController.detailPost)
 router.use(authentication)
 
 // Menampilkan form tambah post
-router.get('/add', PostController.addForm)
+router.get('/post/add', PostController.addForm)
+router.post("/post/add",upload.single("image"),PostController.createPost);
 
-// Menyimpan post baru
-router.post('/add', PostController.createPost)
 
 // Menampilkan form edit post
-router.get('/:id/edit', PostController.editForm)
+router.get('/post/:id/edit', PostController.editForm)
 
 // Menyimpan perubahan post
-router.post('/:id/edit', PostController.updatePost)
+router.post("/post/:id/edit",upload.single("image"),
+PostController.updatePost
+);
 
 // Menghapus post
-router.get('/:id/delete', PostController.deletePost)
+router.get('/post/:id/delete', PostController.deletePost)
 
-// Memberikan like pada post
-router.post('/:id/like', PostController.likePost)
 
 module.exports = router

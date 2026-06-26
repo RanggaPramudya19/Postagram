@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Edit Post | Postagram</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+<style>
+
+body{
+    background:#000;
+    color:white;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+.container{
+    max-width:760px;
+    margin:50px auto;
+}
+
+.topbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:25px;
+}
+
+.logo{
+    font-size:40px;
+    font-weight:bold;
+}
+
+.back{
+    border-radius:50px;
+}
+
+.compose{
+    background:#111;
+    border:1px solid #2c2c2c;
+    border-radius:25px;
+    overflow:hidden;
+}
+
+.compose-header{
+    display:flex;
+    align-items:center;
+    padding:30px;
+}
+
+.avatar{
+    width:60px;
+    height:60px;
+    border-radius:50%;
+    object-fit:cover;
+    margin-right:18px;
+}
+
+.name{
+    font-size:20px;
+    font-weight:bold;
+}
+
+.username{
+    color:#888;
+}
+
+textarea{
+    background:transparent !important;
+    border:none !important;
+    color:white !important;
+    font-size:22px;
+    resize:none;
+    min-height:220px;
+}
+
+textarea:focus{
+    box-shadow:none;
+}
+
+.upload-box{
+    margin:0 30px 30px;
+    border:2px dashed #3d3d3d;
+    border-radius:18px;
+    min-height:180px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    cursor:pointer;
+    transition:.3s;
+    overflow:hidden;
+}
+
+.upload-box:hover{
+    border-color:white;
+    background:#181818;
+}
+
+.upload-box i{
+    font-size:55px;
+}
+
+.preview{
+    width:100%;
+    max-height:350px;
+    object-fit:cover;
+    border-radius:12px;
+}
+
+.footer{
+    padding:25px 30px;
+    border-top:1px solid #2c2c2c;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.btn-post{
+    border-radius:50px;
+    padding:10px 30px;
+    font-weight:bold;
+}
+
+input[type=file]{
+    display:none;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="topbar">
+
+<div class="logo">
+Postagram
+</div>
+
+<a href="/profile" class="btn btn-outline-light back">
+
+<i class="bi bi-arrow-left"></i>
+
+Back
+
+</a>
+
+</div>
+
+<div class="compose">
+
+<form
+action="/post/<%= post.id %>/edit"
+method="POST"
+enctype="multipart/form-data">
+
+<div class="compose-header">
+
+<div>
+
+<div class="name">
+
+Edit Post
+
+</div>
+
+<div class="username">
+
+Update your post
+
+</div>
+
+</div>
+
+</div>
+
+<div class="px-4">
+
+<textarea
+class="form-control"
+name="description"
+required><%= post.description %></textarea>
+
+</div>
+
+<label class="upload-box">
+
+<% if(post.imageUrl){ %>
+
+<img
+src="<%= post.imageUrl %>"
+id="preview"
+class="preview">
+
+<% }else{ %>
+
+<i id="icon" class="bi bi-images"></i>
+
+<h4 id="text" class="mt-3">
+
+Add Photo
+
+</h4>
+
+<p class="text-secondary">
+
+Upload New Photo
+
+</p>
+
+<img
+id="preview"
+class="preview"
+style="display:none;">
+
+<% } %>
+
+<input
+type="file"
+name="image"
+accept="image/*"
+onchange="previewImage(event)">
+
+</label>
+
+<div class="footer">
+
+<span class="text-secondary">
+
+<i class="bi bi-pencil-square"></i>
+
+Editing Post
+
+</span>
+
+<button class="btn btn-light btn-post">
+
+<i class="bi bi-check-circle-fill"></i>
+
+Update Post
+
+</button>
+
+</div>
+
+</form>
+
+</div>
+
+</div>
+
+<script>
+
+function previewImage(event){
+
+const preview=document.getElementById("preview");
+
+preview.src=URL.createObjectURL(event.target.files[0]);
+
+preview.style.display="block";
+
+const icon=document.getElementById("icon");
+const text=document.getElementById("text");
+
+if(icon) icon.style.display="none";
+if(text) text.style.display="none";
+
+}
+
+</script>
+
+</body>
+
+</html>
